@@ -34,13 +34,15 @@ export class Toolbar extends React.Component<ToolbarProps, ToolbarState> {
                         style={{
                             position: "fixed",
                             left: 0,
-                            top : 0
+                            top : 0,
+                            cursor: "pointer"
                         }}
                     >
                         <MenuIcon
                             style={{
-                                margin: "10px"
+                                padding: "10px"
                             }}
+                            hoverColor="red"
                             onClick={this.toggleToolbar}
                         />
                     </div>
@@ -56,7 +58,12 @@ export class Toolbar extends React.Component<ToolbarProps, ToolbarState> {
             );
         } else {
             return (
-                <div style={{width: `${this.toolbarWidth}px`}}>
+                <div
+                    style={{
+                        width: `${this.toolbarWidth}px`,
+                        borderRight: "1px solid #DDD"
+                    }}
+                >
                     <ToolbarContent />
                 </div>
             );
