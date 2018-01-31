@@ -4,6 +4,7 @@ import Checkbox from "material-ui/Checkbox";
 
 export interface TodoItemProps {
     item : ToDoItemInterface;
+    onStatusChange? : (status : boolean) => void;
 }
 
 export interface TodoItemState {
@@ -29,7 +30,10 @@ export class TodoItem extends React.Component<TodoItemProps, TodoItemState> {
                 }}
             >
                 <div>
-                    <Checkbox />
+                    <Checkbox
+                        checked={item.completed}
+                        onCheck={this.toggleStatus.bind(this)}
+                    />
                 </div>
                 <div style={{flex: 1}}>
                     {item.content}
@@ -37,5 +41,9 @@ export class TodoItem extends React.Component<TodoItemProps, TodoItemState> {
             </div>
         );
     }
-
+    public toggleStatus(e : Event, isChecked : boolean) {
+        if (this.props.onStatusChange) {
+            this.props.onStatusChange(isChecked);
+        }
+    }
 }

@@ -13,8 +13,7 @@ class ToDoServiceClass {
     @observable public showPending : boolean = true;
     @observable public toDoItems : Array<ToDoItemInterface> = [];
 
-    @action
-    public addTODO(content : string) {
+    @action public addTODO(content : string) {
         this.toDoItems.unshift(
             {
                 content,
@@ -23,7 +22,11 @@ class ToDoServiceClass {
             }
         );
     }
-
+    @action public setTODOstatus(index : number, status : boolean) {
+        if (this.toDoItems[index]) {
+            this.toDoItems[index].completed = status;
+        }
+    }
 }
 
 const ToDoService = new ToDoServiceClass();

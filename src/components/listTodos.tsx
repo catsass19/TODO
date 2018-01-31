@@ -25,9 +25,27 @@ export class ListTodos extends React.Component<ListTodoProps, ListTodoState> {
         const items = toJS(ToDoService.toDoItems);
         return(
             <div style={{minWidth: "200px", display: "flex", flexDirection: "column"}}>
-                {items.map((item : ToDoItemInterface) => <TodoItem key={item.UUID} item={item}/>)}
+                {items.map((item : ToDoItemInterface, index : number) => {
+                    const {completed} = item;
+                    let show = false;
+                    if ((ToDoService.showPending && !completed) ||
+                        (ToDoService.showCompleted && completed)
+                    ) {
+                        show = true;
+                    }
+                    return show? (
+                        <TodoItem
+                            key={item.UUID}
+                            item={item}
+                            onStatusChange={this.changeItemStatus.bind(this, index)}
+                        />
+                    ) : null;
+                })}
             </div>
         );
     }
-
+    public changeItemStatus(index : number, status : boolean) {
+        console.log(index, status);
+        ToDoService.setTODOstatus(index, status);
+    }
 }
