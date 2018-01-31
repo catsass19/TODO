@@ -8,14 +8,16 @@ const ToDoArea = () => {
         <div
             style={{
                 flex: 1,
-                display: "flex",
-                flexDirection: "column",
                 alignItems: "center",
                 justifyItems: "center",
+                overflowY: "auto",
+                padding: "0% 10%"
             }}
         >
             <InsertTodo />
-            <ListTodos />
+            <div style={{marginTop: "20px"}}>
+                <ListTodos />
+            </div>
         </div>
     );
 };

@@ -15,7 +15,7 @@ class ToDoServiceClass {
 
     @action
     public addTODO(content : string) {
-        this.toDoItems.push(
+        this.toDoItems.unshift(
             {
                 content,
                 completed: false,

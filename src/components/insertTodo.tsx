@@ -22,6 +22,7 @@ export class InsertTodo extends React.Component<InsertTodoProps, InsertTodoState
     public render() {
         return(
             <TextField
+                fullWidth={true}
                 floatingLabelText="Insert New TODO Item"
                 value={this.state.todoValue}
                 onChange={this.updateText.bind(this)}
@@ -42,8 +43,10 @@ export class InsertTodo extends React.Component<InsertTodoProps, InsertTodoState
     @autobind
     public kbHandler(event : KeyboardEvent) {
         if (event.key === "Enter") {
-            ToDoService.addTODO(this.state.todoValue);
-            this.setState({todoValue: ""});
+            if (this.state.todoValue.length) {
+                ToDoService.addTODO(this.state.todoValue);
+                this.setState({todoValue: ""});
+            }
         }
     }
 }

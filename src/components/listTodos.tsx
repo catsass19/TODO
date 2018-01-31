@@ -3,6 +3,7 @@ import {toJS} from "mobx";
 import {observer} from "mobx-react";
 
 import {ToDoService, ToDoItemInterface} from "../service/toDoService";
+import {TodoItem} from "./todoItem";
 
 export interface ListTodoProps {
 
@@ -23,17 +24,8 @@ export class ListTodos extends React.Component<ListTodoProps, ListTodoState> {
     public render() {
         const items = toJS(ToDoService.toDoItems);
         return(
-            <div style={{flex: 1}}>
-                {
-                    items.map((item : ToDoItemInterface) => {
-                        const {UUID, content} = item;
-                        return (
-                            <div key={UUID}>
-                                {content}
-                            </div>
-                        );
-                    })
-                }
+            <div style={{minWidth: "200px", display: "flex", flexDirection: "column"}}>
+                {items.map((item : ToDoItemInterface) => <TodoItem key={item.UUID} item={item}/>)}
             </div>
         );
     }
