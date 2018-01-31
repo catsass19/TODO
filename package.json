@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "webpack --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   "homepage": "https://github.com/catsass19/TODO#readme",
   "dependencies": {},
   "devDependencies": {
+    "ts-loader": "^3.4.0",
+    "typescript": "^2.6.2",
     "webpack": "^3.10.0"
   }
 }
