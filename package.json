@@ -17,9 +17,16 @@
     "url": "https://github.com/catsass19/TODO/issues"
   },
   "homepage": "https://github.com/catsass19/TODO#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@types/react": "^16.0.35",
+    "@types/react-dom": "^16.0.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
   "devDependencies": {
     "ts-loader": "^3.4.0",
+    "tslint": "^5.9.1",
+    "tslint-loader": "^3.5.3",
     "typescript": "^2.6.2",
     "webpack": "^3.10.0"
   }
