@@ -1,5 +1,21 @@
 import * as React from "react";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
-const Main = <div>aaaa</div>;
+import {Toolbar} from "./toolbar";
+import {ToDoArea} from "./todoArea";
+
+const Main = (
+    <MuiThemeProvider>
+        <div
+            style={{
+                height: "100vh",
+                display: "flex"
+            }}
+        >
+            <Toolbar />
+            <ToDoArea />
+        </div>
+    </MuiThemeProvider>
+);
 
 export default Main;
