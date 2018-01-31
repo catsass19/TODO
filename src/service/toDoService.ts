@@ -1,8 +1,10 @@
 import {observable, action} from "mobx";
+import UUID from "uuid/v4";
 
-interface ToDoItemInterface {
+export interface ToDoItemInterface {
     content : string;
     completed : boolean;
+    UUID : string;
 }
 
 class ToDoServiceClass {
@@ -13,12 +15,19 @@ class ToDoServiceClass {
 
     @action
     public addTODO(content : string) {
-        this.toDoItems.push({
-            content,
-            completed: false
-        });
+        this.toDoItems.push(
+            {
+                content,
+                completed: false,
+                UUID: UUID()
+            }
+        );
     }
 
 }
 
-export default new ToDoServiceClass();
+const ToDoService = new ToDoServiceClass();
+
+export {
+    ToDoService
+};

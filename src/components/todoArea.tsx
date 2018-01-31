@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import {InsertTodo} from "./insertTodo";
+import {ListTodos} from "./listTodos";
 
 const ToDoArea = () => {
     return (
@@ -13,16 +14,8 @@ const ToDoArea = () => {
                 justifyItems: "center",
             }}
         >
-            <div
-                style={{
-                    padding: "10px"
-                }}
-            >
-                <InsertTodo />
-            </div>
-            <div style={{flex: 1}}>
-                asdas
-            </div>
+            <InsertTodo />
+            <ListTodos />
         </div>
     );
 };

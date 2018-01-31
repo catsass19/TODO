@@ -1,7 +1,7 @@
 import * as React from "react";
 import TextField from "material-ui/TextField";
 import autobind from "autobind-decorator";
-import ToDoService from "../service/toDoService";
+import {ToDoService} from "../service/toDoService";
 
 export interface InsertTodoProps {
 

@@ -4,7 +4,7 @@ import Toggle from "material-ui/Toggle";
 import Subheader from "material-ui/Subheader";
 import {List, ListItem} from "material-ui/List";
 
-import ToDoService from "../service/toDoService";
+import {ToDoService} from "../service/toDoService";
 
 export interface ToolbarContentProps {
 
