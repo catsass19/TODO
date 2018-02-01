@@ -4,6 +4,7 @@ import Toggle from "material-ui/Toggle";
 import {List, ListItem} from "material-ui/List";
 import FilterIcon from "material-ui/svg-icons/content/filter-list";
 import DeleteIcon from "material-ui/svg-icons/action/delete";
+import FlatButton from "material-ui/FlatButton";
 
 import {ToDoService} from "../service/toDoService";
 
@@ -22,7 +23,14 @@ export class ToolbarContent extends React.Component<ToolbarContentProps, Toolbar
     }
     public render() {
         return (
-            <div>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100vh",
+                    overflowY: "auto"
+                }}
+            >
                 <List>
                     <ListItem
                         leftIcon={<FilterIcon/>}
@@ -51,6 +59,15 @@ export class ToolbarContent extends React.Component<ToolbarContentProps, Toolbar
                         onClick={this.removeCompleted}
                     />
                 </List>
+                <div style={{flex: 1}} />
+                <div style={{textAlign: "center", padding: "10px"}}>
+                    <FlatButton
+                        hoverColor="#F5F5F5"
+                        style={{color: "#CCC"}}
+                        label="View on GitHub"
+                        onClick={this.goToGithub}
+                    />
+                </div>
             </div>
         );
     }
@@ -62,5 +79,8 @@ export class ToolbarContent extends React.Component<ToolbarContentProps, Toolbar
     }
     private removeCompleted(e : object) {
         ToDoService.removeCompletedTODO();
+    }
+    private goToGithub() {
+        window.open("https://github.com/catsass19/TODO", "_blank");
     }
 }
