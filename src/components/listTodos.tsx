@@ -38,6 +38,7 @@ export class ListTodos extends React.Component<ListTodoProps, ListTodoState> {
                             key={item.UUID}
                             item={item}
                             onStatusChange={this.changeItemStatus.bind(this, index)}
+                            onDelete={this.removeItem.bind(this, index)}
                         />
                     ) : null;
                 })}
@@ -45,7 +46,9 @@ export class ListTodos extends React.Component<ListTodoProps, ListTodoState> {
         );
     }
     public changeItemStatus(index : number, status : boolean) {
-        console.log(index, status);
         ToDoService.setTODOstatus(index, status);
+    }
+    public removeItem(index : number) {
+        ToDoService.removeTODO(index);
     }
 }

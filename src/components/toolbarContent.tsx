@@ -3,6 +3,7 @@ import {observer} from "mobx-react";
 import Toggle from "material-ui/Toggle";
 import Subheader from "material-ui/Subheader";
 import {List, ListItem} from "material-ui/List";
+import FilterIcon from "material-ui/svg-icons/content/filter-list";
 
 import {ToDoService} from "../service/toDoService";
 
@@ -23,9 +24,9 @@ export class ToolbarContent extends React.Component<ToolbarContentProps, Toolbar
         return (
             <div>
                 <List>
-                    <Subheader>Show TODOs</Subheader>
                     <ListItem
-                        primaryText="Pending"
+                        leftIcon={<FilterIcon/>}
+                        primaryText={`Pending (${ToDoService.counts.pending})`}
                         rightToggle={
                             <Toggle
                                 toggled={ToDoService.showPending}
@@ -34,7 +35,8 @@ export class ToolbarContent extends React.Component<ToolbarContentProps, Toolbar
                         }
                     />
                     <ListItem
-                        primaryText="Completed"
+                        insetChildren={true}
+                        primaryText={`Completed (${ToDoService.counts.completed})`}
                         rightToggle={
                             <Toggle
                                 toggled={ToDoService.showCompleted}

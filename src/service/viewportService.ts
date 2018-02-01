@@ -5,7 +5,7 @@ import debounce from "lodash/debounce";
 class ViewPortServiceClass {
 
     @observable public isMobile : boolean = false;
-    private viewThreshold = 700;
+    private viewThreshold = 760;
 
     public adjustView(viewInPx : number) {
         if (isNumber(viewInPx)) {
