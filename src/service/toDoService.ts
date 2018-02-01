@@ -44,6 +44,9 @@ class ToDoServiceClass {
             this.toDoItems[index].content = content;
         }
     }
+    @action public removeCompletedTODO() {
+        this.toDoItems = this.toDoItems.filter((item) => !item.completed);
+    }
 }
 
 const ToDoService = new ToDoServiceClass();

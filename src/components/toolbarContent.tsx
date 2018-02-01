@@ -1,9 +1,9 @@
 import * as React from "react";
 import {observer} from "mobx-react";
 import Toggle from "material-ui/Toggle";
-import Subheader from "material-ui/Subheader";
 import {List, ListItem} from "material-ui/List";
 import FilterIcon from "material-ui/svg-icons/content/filter-list";
+import DeleteIcon from "material-ui/svg-icons/action/delete";
 
 import {ToDoService} from "../service/toDoService";
 
@@ -30,7 +30,7 @@ export class ToolbarContent extends React.Component<ToolbarContentProps, Toolbar
                         rightToggle={
                             <Toggle
                                 toggled={ToDoService.showPending}
-                                onToggle={this.togglePending.bind(this)}
+                                onToggle={this.togglePending}
                             />
                         }
                     />
@@ -40,18 +40,27 @@ export class ToolbarContent extends React.Component<ToolbarContentProps, Toolbar
                         rightToggle={
                             <Toggle
                                 toggled={ToDoService.showCompleted}
-                                onToggle={this.toggleCompleted.bind(this)}
+                                onToggle={this.toggleCompleted}
                             />
                         }
+                    />
+                    <ListItem
+                        hoverColor="#f9d1d1"
+                        leftIcon={<DeleteIcon/>}
+                        primaryText="Remove Completed"
+                        onClick={this.removeCompleted}
                     />
                 </List>
             </div>
         );
     }
-    private togglePending(event : Event, isInputChecked : boolean) : void {
+    private togglePending(event : object, isInputChecked : boolean) : void {
         ToDoService.showPending = isInputChecked;
     }
-    private toggleCompleted(event : Event, isInputChecked : boolean) : void {
+    private toggleCompleted(event : object, isInputChecked : boolean) : void {
         ToDoService.showCompleted = isInputChecked;
+    }
+    private removeCompleted(e : object) {
+        ToDoService.removeCompletedTODO();
     }
 }

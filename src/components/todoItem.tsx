@@ -52,7 +52,7 @@ export class TodoItem extends React.Component<TodoItemProps, TodoItemState> {
                     style={{
                         flex: 1,
                         textDecoration: item.completed? "line-through" : null,
-                        color: item.completed? "#CCC" : null,
+                        color: item.completed? "#888" : null,
                         wordWrap: "break-word",
                         overflowX: "hidden"
                     }}
