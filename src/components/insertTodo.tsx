@@ -25,23 +25,26 @@ export class InsertTodo extends React.Component<InsertTodoProps, InsertTodoState
                 fullWidth={true}
                 floatingLabelText="Insert New TODO Item"
                 value={this.state.todoValue}
-                onChange={this.updateText.bind(this)}
-                onFocus={this.onFocus.bind(this)}
-                onBlur={this.onBlur.bind(this)}
+                onChange={this.updateText}
+                onFocus={this.onFocus}
+                onBlur={this.onBlur}
             />
         );
     }
-    public updateText(event : Event, todoValue : string) {
+    @autobind
+    private updateText(event : object, todoValue : string) {
         this.setState({todoValue});
     }
-    public onFocus() {
+    @autobind
+    private onFocus(e : object) {
         document.addEventListener("keydown", this.kbHandler);
     }
-    public onBlur() {
+    @autobind
+    private onBlur(e : object) {
         document.removeEventListener("keydown", this.kbHandler);
     }
     @autobind
-    public kbHandler(event : KeyboardEvent) {
+    private kbHandler(event : KeyboardEvent) {
         if (event.key === "Enter") {
             if (this.state.todoValue.length) {
                 ToDoService.addTODO(this.state.todoValue);

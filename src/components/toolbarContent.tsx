@@ -48,10 +48,10 @@ export class ToolbarContent extends React.Component<ToolbarContentProps, Toolbar
             </div>
         );
     }
-    public togglePending(event : Event, isInputChecked : boolean) : void {
+    private togglePending(event : Event, isInputChecked : boolean) : void {
         ToDoService.showPending = isInputChecked;
     }
-    public toggleCompleted(event : Event, isInputChecked : boolean) : void {
+    private toggleCompleted(event : Event, isInputChecked : boolean) : void {
         ToDoService.showCompleted = isInputChecked;
     }
 }

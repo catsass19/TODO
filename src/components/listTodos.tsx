@@ -39,16 +39,20 @@ export class ListTodos extends React.Component<ListTodoProps, ListTodoState> {
                             item={item}
                             onStatusChange={this.changeItemStatus.bind(this, index)}
                             onDelete={this.removeItem.bind(this, index)}
+                            onContentChange={this.changeContent.bind(this, index)}
                         />
                     ) : null;
                 })}
             </div>
         );
     }
-    public changeItemStatus(index : number, status : boolean) {
+    private changeItemStatus(index : number, status : boolean) {
         ToDoService.setTODOstatus(index, status);
     }
-    public removeItem(index : number) {
+    private removeItem(index : number) {
         ToDoService.removeTODO(index);
+    }
+    private changeContent(index : number, content : string) {
+        ToDoService.setTODOcontent(index, content);
     }
 }

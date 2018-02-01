@@ -71,7 +71,7 @@ export class Toolbar extends React.Component<ToolbarProps, ToolbarState> {
     }
 
     @autobind
-    public toggleToolbar() {
+    private toggleToolbar() {
         this.setState({openToolbar: !this.state.openToolbar});
     }
 }

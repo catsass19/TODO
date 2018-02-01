@@ -39,6 +39,11 @@ class ToDoServiceClass {
     @action public removeTODO(index : number) {
         this.toDoItems.splice(index, 1);
     }
+    @action public setTODOcontent(index : number, content : string) {
+        if (content && content.length && this.toDoItems[index]) {
+            this.toDoItems[index].content = content;
+        }
+    }
 }
 
 const ToDoService = new ToDoServiceClass();
